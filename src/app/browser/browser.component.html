@@ -1,0 +1,18 @@
+
+<span style="width: 100%; text-align: center;">
+<input type="text" [(ngModel)]="searchString" style="font-size: xx-large;" >
+<button (click)="search()" style="font-size: xx-large;" >Search</button>
+</span>
+
+<br/><br/>
+
+<div *ngFor="let p of this.pathways2 | paginate: { itemsPerPage: 30, currentPage: currentPage }">
+  <a href="http://reactome.org/content/detail/{{p.stId}}" target="_blank">{{p.name}}</a>
+  <span>({{p.stId}})</span>
+  <span>({{p.datasets.length}} datasets)</span>
+  <span *ngFor="let d of p.datasets" style="font-size: xx-small">
+    <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
+  </span>
+</div>
+
+<pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
