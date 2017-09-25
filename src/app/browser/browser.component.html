@@ -7,11 +7,14 @@
 <br/><br/>
 
 <div *ngFor="let p of this.pathways2 | paginate: { itemsPerPage: 30, currentPage: currentPage }">
+  <span style="white-space: nowrap; overflow: hidden;">
   <a href="http://reactome.org/content/detail/{{p.stId}}" target="_blank">{{p.name}}</a>
   <span>({{p.stId}})</span>
   <span>({{p.datasets.length}} datasets)</span>
+
   <span *ngFor="let d of p.datasets" style="font-size: xx-small">
     <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
+  </span>
   </span>
 </div>
 

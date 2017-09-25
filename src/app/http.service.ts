@@ -13,17 +13,14 @@ export class HttpService {
 
   }
 
-  // url = 'http://www.omicsdi.org:80/ws/dataset/search?query=*%3A*&start=0&size=20&faceCount=20';
-  url = 'http://www.omicsdi.org/ws/dataset/search?query=Kidney%20Cancer&start=0&size=100&faceCount=20';
-
-  reactomeUrl = 'http://reactome.org/AnalysisService/identifiers/?interactors=false&pageSize=20&page=1&sortBy=ENTITIES_PVALUE&order=ASC&resource=TOTAL';
+  reactomeUrl = 'https://reactome.org/AnalysisService/identifiers/?interactors=false&pageSize=20&page=1&sortBy=ENTITIES_PVALUE&order=ASC&resource=TOTAL';
 
   public getSearchUrl(searchString: string) {
-    return `http://www.omicsdi.org/ws/dataset/search?query=${searchString}&start=0&size=100&faceCount=20`;
+    return `https://www.omicsdi.org/ws/dataset/search?query=${searchString}&start=0&size=100&faceCount=20`;
   }
 
   public getReferenceUrl(acc: string, repo: string) {
-    return `http://www.omicsdi.org/ws/dataset/${repo}/${acc}.json`;
+    return `https://www.omicsdi.org/ws/dataset/${repo}/${acc}.json`;
   }
 
   public getDatasets(searchString: string): Observable<Dataset[]> {
