@@ -16,11 +16,11 @@ export class HttpService {
   reactomeUrl = 'https://reactome.org/AnalysisService/identifiers/?interactors=false&pageSize=20&page=1&sortBy=ENTITIES_PVALUE&order=ASC&resource=TOTAL';
 
   public getSearchUrl(searchString: string) {
-    return `https://www.omicsdi.org/ws/dataset/search?query=${searchString}&start=0&size=100&faceCount=20`;
+    return `https://wwwdev.ebi.ac.uk/Tools/omicsdi/ws/dataset/search?query=${searchString}&start=0&size=100&faceCount=20`;
   }
 
   public getReferenceUrl(acc: string, repo: string) {
-    return `https://www.omicsdi.org/ws/dataset/${repo}/${acc}.json`;
+    return `https://wwwdev.ebi.ac.uk/Tools/omicsdi/ws/dataset/${repo}/${acc}.json`;
   }
 
   public getDatasets(searchString: string): Observable<Dataset[]> {
