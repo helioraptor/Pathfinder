@@ -1,6 +1,6 @@
 # ProjectPathfinder
 
-[#CamHack17](http://casim.org.uk/hackathon/) [#ProjectPathfinder](http://casim.org.uk/hackathon/) Lightweight, in-browser app for discovering publicly available datasets in relation to biological pathways. Angular2.
+[#CamHack17](http://casim.org.uk/hackathon/) [#ProjectPathfinder](http://casim.org.uk/hackathon/) Lightweight, in-browser app for discovering publicly available datasets in relation to biological pathways.
 Angular2 (TypeScript)
 
 list of datasets retrived by search API: 
