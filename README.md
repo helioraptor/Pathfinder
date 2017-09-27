@@ -1,8 +1,7 @@
 # Pathfinder
 
-Open repository based pathway browser/analysis: OmicsDI+Reactome
-
-Angular4
+[#CamHack17](http://casim.org.uk/hackathon/) [#ProjectPathfinder](http://casim.org.uk/hackathon/) Lightweight, in-browser app for discovering publicly available datasets in relation to biological pathways. Angular2.
+Angular2 (TypeScript)
 
 molecular IDs can be found in Dataset crossReferences field:
 http://www.omicsdi.org/ws/dataset/pride/PXD006482.json
