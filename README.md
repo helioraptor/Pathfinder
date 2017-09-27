@@ -17,9 +17,10 @@ example molecule ID: P07355
 
 list of IDs in CSV format submitted ot Reactome API (POST) 
 https://reactome.org/AnalysisService/identifiers/?interactors=false&pageSize=20&page=1&sortBy=ENTITIES_PVALUE&order=ASC&resource=TOTAL;
-**TODO:** retrieve more then one page of data*
+***TODO:** retrieve more then one page of data*
 
 Demo App:
 https://pathfinder-72b30.firebaseapp.com/
+***TODO:** sort by number of datasets*
 
-Slide for F1000 hackaton chanel [CamHack17.pdf](CamHack17.pdf)
+Slide for F1000 hackaton chanel [CamHack17-Pathfinder.pdf](CamHack17-Pathfinder.pdf)
