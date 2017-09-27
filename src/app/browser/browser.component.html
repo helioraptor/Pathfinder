@@ -1,21 +1,61 @@
 
-<span style="width: 100%; text-align: center;">
-<input type="text" [(ngModel)]="searchString" style="font-size: xx-large;" >
-<button (click)="search()" style="font-size: xx-large;" >Search</button>
+<span style="width: 100%; text-align: center; font-family: 'Times'">
+<input type="text" [(ngModel)]="searchString" style="font-size: xx-large; font-family: 'Times'" >
+<button (click)="search()" style="font-size: xx-large; font-family: 'Times'" >Search</button>
 </span>
 
 <br/><br/>
 
-<div *ngFor="let p of this.pathways2 | paginate: { itemsPerPage: 30, currentPage: currentPage }">
-  <span style="white-space: nowrap; overflow: hidden;">
-  <a href="http://reactome.org/content/detail/{{p.stId}}" target="_blank">{{p.name}}</a>
-  <span>({{p.stId}})</span>
-  <span>({{p.datasets.length}} datasets)</span>
+<table>
+  <tr>
+  <th style="width:25%">Pathway</th>
+  <th style="width:75%">Datasets</th>
+  </tr>
 
-  <span *ngFor="let d of p.datasets" style="font-size: xx-small">
+<tr *ngFor="let p of this.pathways2 | paginate: { itemsPerPage: 30, currentPage: currentPage }" style="height:50px;">
+  <td style="width:25%; vertical-align: top;">
+
+  <span>
+  <a href="http://reactome.org/content/detail/{{p.stId}}" target="_blank">{{p.name}}</a><br/>
+  <span>{{p.stId}}</span>
+  <span>({{p.datasets.length}} datasets)</span>
+  </span>
+  </td>
+
+  <td style="width:75%;font-size: small; vertical-align: top;">
+  <div *ngIf="p['Genomics']">
+  Genomics: <span *ngFor="let d of p['Genomics']">
     <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
   </span>
+  </div>
+
+  <div *ngIf="p['Proteomics']">
+  Proteomics: <span *ngFor="let d of p['Proteomics']">
+    <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
   </span>
-</div>
+  </div>
+
+  <div *ngIf="p['Transcriptomics']">
+  Transcriptomics: <span *ngFor="let d of p['Transcriptomics']">
+    <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
+  </span>
+  </div>
+
+  <div *ngIf="p['Multiomics']">
+  Multiomics: <span *ngFor="let d of p['Multiomics']">
+    <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
+  </span>
+  </div>
+
+  <div *ngIf="p['Other']">
+  Other: <span *ngFor="let d of p['Other']">
+    <a href="http://www.omicsdi.org/dataset/{{d.source}}/{{d.id}}" title="{{d.title}}">{{d.id}}</a>
+  </span>
+  </div>
+
+  </td>
+
+</tr>
+</table>
 
 <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>

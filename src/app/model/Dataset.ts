@@ -8,4 +8,5 @@ export class Dataset {
   public title: string; // "Unliganded Estrogen Receptor Beta....",
   public description: string;
   public keywords: string[]; // ["RIP-seq"]
+  public omicsType: string[];
 }

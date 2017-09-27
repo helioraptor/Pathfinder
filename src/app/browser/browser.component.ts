@@ -25,12 +25,28 @@ export class BrowserComponent implements OnInit {
   }
 
   search() {
+    this.pathways2 = [];
+    this.pathways = {};
     this.omicsDIService.getDatasets(this.searchString).subscribe(
       x => {
         this.datasets = x;
         this.getMolecules();
       }
     );
+  }
+
+  getOmicsType( omicsType: string[]) : string {
+    if (omicsType.indexOf('Multiomics') > -1) {
+      return 'Multiomics';
+    } else if (omicsType.indexOf('Genomics') > -1) {
+      return 'Genomics';
+    } else if (omicsType.indexOf('Proteomics') > -1) {
+      return 'Proteomics';
+    } else if (omicsType.indexOf('Transcriptomics') > -1) {
+      return 'Transcriptomics';
+    } else {
+      return 'Other';
+    }
   }
 
   getMolecules() {
@@ -52,12 +68,18 @@ export class BrowserComponent implements OnInit {
                       pathway: xi,
                       datasets: [d]
                     };
+
                     p.datasets = [d];
+                    const omicsType = this.getOmicsType(d.omicsType);
+                    p[omicsType] = [d];
+
                     this.pathways2.push(p);
                   }else {
                     this.pathways[p.stId].datasets.push(d);
+                    const omicsType = this.getOmicsType(d.omicsType);
 
                     this.pathways2.find(x2 => (x2.stId === p.stId)).datasets.push(d);
+                    this.pathways2.find(x2 => (x2.stId === p.stId))[omicsType].push(d);
                     console.log('adding dataset to:' + p.stId);
                   }
                 }

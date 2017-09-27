@@ -18,3 +18,6 @@ those IDs can be used to retireve Pathway data from Reactome
 
 Demo App:
 https://pathfinder-72b30.firebaseapp.com/
+
+
+[Slide for F1000 hackaton chanel](CamHack17.pdf)
